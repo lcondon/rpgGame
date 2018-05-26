@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <img src="./assets/images/titleFun.png" class="img-fluid" id="titleImage">
+    <div class="container" id="mainFrame">
+        <div class="row">
+            <div class="card-deck" id="startingPlace">
+                <div class="card text-center" id="daenerysCard">
+                    <div class="card-body">
+                        <div class="card-title text-secondary">Daenerys</div>
+                        <img src="./assets/images/daenerys.jpg" class="img-fluid characters">
+                        <div class="card-text text-secondary align-middle" id="daenerysHP">150</div>
+                    </div>
+                </div>
+                <div class="card text-center" id="snowCard">
+                    <div class="card-body">
+                        <div class="card-title text-secondary">Jon Snow</div>
+                        <img src="./assets/images/jonSnow.jpg" class="img-fluid characters">
+                        <div class="card-text text-secondary" id="snowHP">100</div>
+                    </div>
+                </div>
+                <div class="card text-center" id="cerseiCard">
+                    <div class="card-body">
+                        <div class="card-title text-secondary">Cersei Lannister</div>
+                        <img src="./assets/images/cersei.jpg" class="img-fluid characters">
+                        <div class="card-text text-secondary" id="cerseiHP">120</div>
+                    </div>
+                </div>
+                <div class="card text-center" id="nightCard">
+                    <div class="card-body">
+                        <div class="card-title text-secondary">Night King</div>
+                        <img src="./assets/images/nightKing.jpg" class="img-fluid characters">
+                        <div class="card-text text-secondary" id="nightHP">180</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Your Character</h1>
+                </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="row">
+                <div class="col-12" id="chosenCharacter">
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <h1>Enemies Available to Attack</h1>
+                </div>
+                <div class="w-100"></div>
+                <div class="row">
+                    <div class="card-deck" id="enemiesAvail">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <h1>Fight Section</h1>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-dark" id="attackButton">Attack</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <h1>Defender</h1>
+                </div>
+                <div class="w-100"></div>
+                <div class="row">
+                    <div class="card-deck" id="currentDefender">
+
+                    </div>
+                    <div class="col-8">
+                        <p id="gameStatus"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script src="./assets/js/game.js" type="text/javascript"></script>
+</body>
+
+</html>

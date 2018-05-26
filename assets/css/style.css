@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'hodorregular';
+    src: url('./fonts/hodor-webfont.woff2') format('woff2'),
+         url('./fonts/hodor-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.card-body {
+    padding: 0.75rem;
+}
+
+#titleImage {
+    width: 575px;
+    height: auto;
+    float: right;
+    margin: 30px;
+}
+
+#titleHead {
+    margin: 25px;
+    height: auto;
+}
+
+body {
+    background-image: url(./../images/map.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#mainFrame {
+    clear: both;
+    margin-top: 15px;
+    margin-bottom: 45px;
+    height: fit-content;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.351);
+    border-radius: 25px;
+    padding: 25px;
+    color: white;
+
+}
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.characters {
+    width: 150px;
+}
+
+h1 {
+    font-family: 'hodorregular';
+    font-size: 36px;
+    color: white;
+}
