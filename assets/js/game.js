@@ -19,30 +19,30 @@ var currentOpponent;
 var characters = {
     'daenerys': {
         name: 'daenerys',
-        healthPoints: 150,
+        healthPoints: 140,
         attackPower: 9,
-        counterAttackPower: 23,
+        counterAttackPower: 19,
         imageUrl: './assets/images/daenerys.jpg'
     },
     'snow': {
         name: 'snow',
-        healthPoints: 100,
-        attackPower: 6,
+        healthPoints: 135,
+        attackPower: 10,
         counterAttackPower: 16,
         imageUrl: './assets/images/jonSnow.jpg'
     },
     'cersei': {
         name: 'cersei',
-        healthPoints: 120,
-        attackPower: 7,
-        counterAttackPower: 18,
+        healthPoints: 130,
+        attackPower: 9,
+        counterAttackPower: 17,
         imageUrl: './assets/images/cersei.jpg'
     },
     'night': {
         name: 'night',
-        healthPoints: 180,
+        healthPoints: 150,
         attackPower: 10,
-        counterAttackPower: 25,
+        counterAttackPower: 20,
         imageUrl: './assets/images/nightKing.jpg'
     }
 }
@@ -137,6 +137,7 @@ $.when($.ready).then(function () {
                     $("#gameStatus1").text(defeatMessage);
                     $("#gameStatus2").empty();
                     $(attack).unbind("click");
+                    setTimeout(startNewGame, 3000);
                 }
             } else {
                 $('#currentDefender').empty();
@@ -151,9 +152,8 @@ $.when($.ready).then(function () {
                     setTimeout(startNewGame, 3000);
                 }
             }
+            turnCounter++;
         }
-
-        turnCounter++;
     })
 
 });
@@ -161,11 +161,11 @@ $.when($.ready).then(function () {
 function startNewGame() {
     characterPicked = false;
     enemyPicked = false;
-    turnCounter = 1;
+    turnCounter = 0;
     killCount = 0;
     enemies = [];
-    myAttacker;
-    currentOpponent;
+    myAttacker = {};
+    currentOpponent = {};
     $("#chosenCharacter").empty();
     $("#gameStatus1").empty();
     $("#gameStatus2").empty();
@@ -173,30 +173,30 @@ function startNewGame() {
     characters = {
         'daenerys': {
             name: 'daenerys',
-            healthPoints: 150,
+            healthPoints: 140,
             attackPower: 9,
-            counterAttackPower: 23,
+            counterAttackPower: 19,
             imageUrl: './assets/images/daenerys.jpg'
         },
         'snow': {
             name: 'snow',
-            healthPoints: 100,
-            attackPower: 6,
+            healthPoints: 135,
+            attackPower: 10,
             counterAttackPower: 16,
             imageUrl: './assets/images/jonSnow.jpg'
         },
         'cersei': {
             name: 'cersei',
-            healthPoints: 120,
-            attackPower: 7,
-            counterAttackPower: 18,
+            healthPoints: 130,
+            attackPower: 9,
+            counterAttackPower: 17,
             imageUrl: './assets/images/cersei.jpg'
         },
         'night': {
             name: 'night',
-            healthPoints: 180,
+            healthPoints: 150,
             attackPower: 10,
-            counterAttackPower: 25,
+            counterAttackPower: 20,
             imageUrl: './assets/images/nightKing.jpg'
         }
     }
@@ -264,8 +264,7 @@ function startNewGame() {
                     setTimeout(startNewGame, 3000);
                 }
             }
+            turnCounter++;      
         }
-
-        turnCounter++;
     })
 };
