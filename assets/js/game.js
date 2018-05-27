@@ -86,10 +86,7 @@ function renderCharacters(charObj, areaRender) {
     }
 };
 
-$.when($.ready).then(function () {
-
-    renderCharacters(characters, '#startingPlace');
-
+function chooseCharacter() {
     $("#startingPlace").on("click", '.card', function () {
         var name = $(this).data('name');
 
@@ -118,6 +115,9 @@ $.when($.ready).then(function () {
             $("#gameStatus2").empty();
         }
     });
+};
+
+function attackCharacter(){
     $(attack).on("click", function () {
         if (enemyPicked) {
             currentOpponent.healthPoints -= (myAttacker.attackPower * turnCounter);
@@ -155,6 +155,18 @@ $.when($.ready).then(function () {
             turnCounter++;
         }
     })
+  }
+
+
+$.when($.ready).then(function () {
+
+    renderCharacters(characters, '#startingPlace');
+
+    chooseCharacter();
+
+    attackCharacter();
+
+
 
 });
 
@@ -203,68 +215,7 @@ function startNewGame() {
 
     renderCharacters(characters, '#startingPlace');
 
-    $("#startingPlace").on("click", '.card', function () {
-        var name = $(this).data('name');
+    chooseCharacter();
 
-        if (characterPicked == false) {
-            myAttacker = characters[name];
-            console.log(myAttacker);
-            characterPicked = true;
-            for (var key in characters) {
-                if (key != name) {
-                    enemies.push(characters[key]);
-                }
-            }
-            renderCharacters(myAttacker, "#chosenCharacter");
-            renderCharacters(enemies, "#enemiesAvail");
-            restart.empty();
-        }
-    });
-    $("#enemiesAvail").on('click', '.enemy', function () {
-        var name = $(this).data('name');
-        if ($('#currentDefender').children().length === 0) {
-            $(this).appendTo("#currentDefender");
-            $(this).addClass("target-enemy");
-            enemyPicked = true;
-            currentOpponent = characters[name];
-            $("#gameStatus1").empty();
-            $("#gameStatus2").empty();
-        }
-    });
-    $(attack).on("click", function () {
-        if (enemyPicked) {
-            currentOpponent.healthPoints -= (myAttacker.attackPower * turnCounter);
-            var attackMessage = "You attacked " + currentOpponent.name + " for " + (myAttacker.attackPower * turnCounter) + " damage.";
-
-            if (currentOpponent.healthPoints > 0) {
-                $('#currentDefender').empty();
-                renderOne(currentOpponent, '#currentDefender', 'defender');
-                myAttacker.healthPoints -= currentOpponent.counterAttackPower;
-                $('#chosenCharacter').empty();
-                renderOne(myAttacker, '#chosenCharacter', 'attacker');
-                var counterAttackMessage = currentOpponent.name + " attacked you back for " + currentOpponent.counterAttackPower + " damage.";
-                $("#gameStatus1").text(attackMessage);
-                $("#gameStatus2").text(counterAttackMessage);
-                if (myAttacker.healthPoints <= 0) {
-                    var defeatMessage = "You have been defeated by " + currentOpponent.name + ".";
-                    $("#gameStatus1").text(defeatMessage);
-                    $("#gameStatus2").empty();
-                    $(attack).unbind("click");
-                }
-            } else {
-                $('#currentDefender').empty();
-                var winMessage = "You have defeated " + currentOpponent.name + ", you can choose to fight another enemy.";
-                $("#gameStatus1").text(winMessage);
-                $("#gameStatus2").empty();
-                enemyPicked = false;
-                killCount++;
-                if (killCount >= 3) {
-                    var winMessage = "Congratulations! You have defeated " + currentOpponent.name + ", the last of your opponents.";
-                    $("#gameStatus1").text(winMessage);
-                    setTimeout(startNewGame, 3000);
-                }
-            }
-            turnCounter++;      
-        }
-    })
+    attackCharacter();
 };
