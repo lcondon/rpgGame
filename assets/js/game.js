@@ -19,9 +19,9 @@ var currentOpponent;
 var characters = {
     'daenerys': {
         name: 'daenerys',
-        healthPoints: 140,
+        healthPoints: 160,
         attackPower: 9,
-        counterAttackPower: 19,
+        counterAttackPower: 23,
         imageUrl: './assets/images/daenerys.jpg'
     },
     'snow': {
@@ -33,16 +33,16 @@ var characters = {
     },
     'cersei': {
         name: 'cersei',
-        healthPoints: 130,
-        attackPower: 9,
+        healthPoints: 150,
+        attackPower: 8,
         counterAttackPower: 17,
         imageUrl: './assets/images/cersei.jpg'
     },
     'night': {
         name: 'night',
-        healthPoints: 150,
-        attackPower: 10,
-        counterAttackPower: 20,
+        healthPoints: 180,
+        attackPower: 11,
+        counterAttackPower: 25,
         imageUrl: './assets/images/nightKing.jpg'
     }
 }
@@ -117,7 +117,7 @@ function chooseCharacter() {
     });
 };
 
-function attackCharacter(){
+function attackCharacter() {
     $(attack).on("click", function () {
         if (enemyPicked) {
             currentOpponent.healthPoints -= (myAttacker.attackPower * turnCounter);
@@ -155,7 +155,7 @@ function attackCharacter(){
             turnCounter++;
         }
     })
-  }
+}
 
 
 $.when($.ready).then(function () {
@@ -173,21 +173,23 @@ $.when($.ready).then(function () {
 function startNewGame() {
     characterPicked = false;
     enemyPicked = false;
-    turnCounter = 0;
+    turnCounter = 1;
     killCount = 0;
     enemies = [];
     myAttacker = {};
     currentOpponent = {};
     $("#chosenCharacter").empty();
+    $("#enemiesAvail").empty();
+    $("#currentDefender").empty();
     $("#gameStatus1").empty();
     $("#gameStatus2").empty();
 
     characters = {
         'daenerys': {
             name: 'daenerys',
-            healthPoints: 140,
+            healthPoints: 160,
             attackPower: 9,
-            counterAttackPower: 19,
+            counterAttackPower: 23,
             imageUrl: './assets/images/daenerys.jpg'
         },
         'snow': {
@@ -199,16 +201,16 @@ function startNewGame() {
         },
         'cersei': {
             name: 'cersei',
-            healthPoints: 130,
-            attackPower: 9,
+            healthPoints: 150,
+            attackPower: 8,
             counterAttackPower: 17,
             imageUrl: './assets/images/cersei.jpg'
         },
         'night': {
             name: 'night',
-            healthPoints: 150,
-            attackPower: 10,
-            counterAttackPower: 20,
+            healthPoints: 180,
+            attackPower: 11,
+            counterAttackPower: 25,
             imageUrl: './assets/images/nightKing.jpg'
         }
     }
